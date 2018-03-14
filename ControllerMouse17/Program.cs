@@ -45,6 +45,15 @@ namespace ControllerMouse17
         float speedUpScale = 0;
         bool ButtonA, ButtonB, ButtonX, ButtonY;
 
+        public struct VDPad
+        {
+            public bool Up, Down, Left, Right;
+        }
+
+
+        VDPad DPad = new VDPad();
+        int scrollSpeed = 120;
+
         float moveScale = 0.35f;
         float inputScale = 15f;
         float speedUpscaleFactor = 3f;
@@ -93,10 +102,18 @@ namespace ControllerMouse17
 
                     //OutPutLog("Rx" + RightStickX + "  Ry" + RightStickY);
 
+                    speedUpScale = Math.Max(LeftTrigger, RightTrigger);
+
                     ButtonA = CState1.Buttons.A == ButtonState.Pressed ? true : false;
                     ButtonB = CState1.Buttons.B == ButtonState.Pressed ? true : false;
                     ButtonX = CState1.Buttons.X == ButtonState.Pressed ? true : false;
                     ButtonY = CState1.Buttons.Y == ButtonState.Pressed ? true : false;
+
+                    DPad.Up = CState1.DPad.Up == ButtonState.Pressed ? true : false;
+                    DPad.Down = CState1.DPad.Down == ButtonState.Pressed ? true : false;
+                    DPad.Left = CState1.DPad.Left == ButtonState.Pressed ? true : false;
+                    DPad.Right = CState1.DPad.Right == ButtonState.Pressed ? true : false;
+
                 }
                 else
                 {
@@ -120,7 +137,7 @@ namespace ControllerMouse17
         {
             if (inputValuesChanged)
             {
-                MouseClicks();
+                DoInputEvents();
             }
             MoveCursor();
             //ivcLate = inputValuesChanged;
@@ -135,7 +152,7 @@ namespace ControllerMouse17
 
         void MoveCursor()
         {
-            speedUpScale = Math.Max(LeftTrigger,RightTrigger);
+            //speedUpScale = Math.Max(LeftTrigger,RightTrigger);
             //if (ivcLate)
             //{
                 
@@ -167,9 +184,11 @@ namespace ControllerMouse17
         }
 
 
-        bool ButtonALast,ButtonBLast;
+        bool ButtonALast,ButtonBLast,ButtonXLast,ButtonYLast;
+        VDPad DPadLast = new VDPad();
 
-        void MouseClicks()
+
+        void DoInputEvents()
         {
             if (ButtonA!=ButtonALast)
             {
@@ -185,9 +204,52 @@ namespace ControllerMouse17
                 else
                     Win32.MouseEvent(Win32.MouseEventFlags.RightUp);
             }
+            if (ButtonX != ButtonXLast)
+            {
+                if (ButtonX)
+                    Win32.PressKeyDown(Win32.Keys.VK_SPACE);
+                else
+                    Win32.PressKeyUp(Win32.Keys.VK_SPACE);
+            }
+
+            int tmpScrollSpeed = (int)(scrollSpeed * speedUpScale);
+            if(DPad.Up != DPadLast.Up)
+            {
+                if (DPad.Up)
+                    Win32.MouseScroll(scrollSpeed);
+                else
+                    ;
+            }
+            if (DPad.Down != DPadLast.Down)
+            {
+                if (DPad.Up)
+                    Win32.MouseScroll(-scrollSpeed);
+                else
+                    ;
+            }
+            if (DPad.Right != DPadLast.Right)
+            {
+                if (DPad.Up)
+                    Win32.MouseScroll(scrollSpeed, true);
+                else
+                    ;
+            }
+            if (DPad.Left != DPadLast.Left)
+            {
+                if (DPad.Up)
+                    Win32.MouseScroll(-scrollSpeed, true);
+                else
+                    ;
+            }
 
             ButtonALast = ButtonA;
             ButtonBLast = ButtonB;
+            ButtonXLast = ButtonX;
+
+            DPadLast.Up = DPad.Up;
+            DPadLast.Down = DPad.Down;
+            DPadLast.Right = DPad.Right;
+            DPadLast.Left = DPad.Left;
         }
         
     }
