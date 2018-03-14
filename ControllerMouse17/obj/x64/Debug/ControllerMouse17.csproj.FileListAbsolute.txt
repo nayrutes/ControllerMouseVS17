@@ -1,6 +1,0 @@
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\bin\x64\Debug\ControllerMouse17.exe.config
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\bin\x64\Debug\ControllerMouse17.exe
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\bin\x64\Debug\ControllerMouse17.pdb
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\obj\x64\Debug\ControllerMouse17.exe
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\obj\x64\Debug\ControllerMouse17.pdb
-c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\obj\x64\Debug\ControllerMouse17.csprojResolveAssemblyReference.cache
