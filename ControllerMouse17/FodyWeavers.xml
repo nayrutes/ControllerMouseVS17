@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers>
+  <Costura>
+    <PreloadOrder>
+      XInputInterface
+    </PreloadOrder>
+    <Unmanaged32Assemblies>
+      XInputInterface
+    </Unmanaged32Assemblies>
+    <IncludeAssemblies>
+      XInputDotNetPure
+      System.Numerics.Vectors
+    </IncludeAssemblies>
+  </Costura>
+</Weavers>
