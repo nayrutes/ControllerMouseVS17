@@ -212,32 +212,34 @@ namespace ControllerMouse17
                     Win32.PressKeyUp(Win32.Keys.VK_SPACE);
             }
 
-            int tmpScrollSpeed = (int)(scrollSpeed * speedUpScale);
+            int scrollSpeedScaleFactor = 15;
+            int tmpScrollSpeed = scrollSpeed + (int)(scrollSpeed * speedUpScale*scrollSpeedScaleFactor);
+            
             if(DPad.Up != DPadLast.Up)
             {
                 if (DPad.Up)
-                    Win32.MouseScroll(scrollSpeed);
+                    Win32.MouseScroll(tmpScrollSpeed);
                 else
                     ;
             }
             if (DPad.Down != DPadLast.Down)
             {
-                if (DPad.Up)
-                    Win32.MouseScroll(-scrollSpeed);
+                if (DPad.Down)
+                    Win32.MouseScroll(-tmpScrollSpeed);
                 else
                     ;
             }
             if (DPad.Right != DPadLast.Right)
             {
-                if (DPad.Up)
-                    Win32.MouseScroll(scrollSpeed, true);
+                if (DPad.Right)
+                    Win32.MouseScroll(tmpScrollSpeed, true);
                 else
                     ;
             }
             if (DPad.Left != DPadLast.Left)
             {
-                if (DPad.Up)
-                    Win32.MouseScroll(-scrollSpeed, true);
+                if (DPad.Left)
+                    Win32.MouseScroll(-tmpScrollSpeed, true);
                 else
                     ;
             }
