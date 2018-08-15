@@ -3,3 +3,9 @@ c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\Controlle
 c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\bin\x64\Release\ControllerMouse17.pdb
 c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\obj\x64\Release\ControllerMouse17.exe
 c:\users\felix\documents\visual studio 2017\Projects\ControllerMouse17\ControllerMouse17\obj\x64\Release\ControllerMouse17.pdb
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\bin\x64\Release\ControllerMouse17.exe.config
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\bin\x64\Release\ControllerMouse17.exe
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\bin\x64\Release\ControllerMouse17.pdb
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\obj\x64\Release\ControllerMouse17.csproj.CoreCompileInputs.cache
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\obj\x64\Release\ControllerMouse17.exe
+H:\Projects2\ControllerMouseVS17\ControllerMouse17\obj\x64\Release\ControllerMouse17.pdb

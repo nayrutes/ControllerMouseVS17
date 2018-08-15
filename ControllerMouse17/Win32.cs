@@ -97,7 +97,9 @@ public class Win32
     public enum Keys:byte
     {
 
-        VK_SPACE = 0x20
+        VK_SPACE = 0x20,
+        VK_MENU = 0x12,
+        VK_F4 = 0x73
 
     }
 
