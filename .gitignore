@@ -321,3 +321,6 @@ ASALocalRun/
 *.binlog
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
+
+Random
+*.db
