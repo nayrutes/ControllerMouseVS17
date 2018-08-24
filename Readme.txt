@@ -10,3 +10,4 @@ Developed by Felix Kosian
 Do not sell or publish without permission
 
 How to Compile: https://github.com/nayrutes/ControllerMouseVS17/wiki
+Controls: https://github.com/nayrutes/ControllerMouseVS17/wiki/Controls
