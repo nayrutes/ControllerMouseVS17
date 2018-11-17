@@ -43,6 +43,8 @@ namespace ControllerMouse17
                 X.action[1] = delegate { Win32.PressKeyUp(Win32.Keys.VK_SPACE);};
                 //LeftStick.action[0] = delegate { Console.Out.WriteLine("Left Stick"); };
                 //RightStick.action[0] = delegate { Console.Out.WriteLine("Right Stick"); };
+                LeftShoulder.action[0] = delegate { Win32.VolDown(); };
+                RightShoulder.action[0] = delegate { Win32.VolUp(); };
             }
             public Button A, B, X, Y, Back, Start, Guide,LeftShoulder,RightShoulder,LeftStick,RightStick;
         }
@@ -289,6 +291,13 @@ namespace ControllerMouse17
                 Win32.PressKeyUp(Win32.Keys.VK_F4);
             };
             virtualButtons.Add(altF4);
+
+            MultiButton muting = new MultiButton("muting",buttons.LeftShoulder, buttons.RightShoulder);
+            muting.action[0] = delegate {
+                OutPutLog("action muting");
+                Win32.Mute();
+            };
+            virtualButtons.Add(muting);
 
             OutPutLog("Total buttoncount: " + virtualButtons.Count);
         }

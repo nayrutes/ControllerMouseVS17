@@ -99,8 +99,11 @@ public class Win32
 
         VK_SPACE = 0x20,
         VK_MENU = 0x12,
-        VK_F4 = 0x73
-
+        VK_F4 = 0x73,
+        
+        VK_VOLUME_MUTE = 0xAD,
+        VK_VOLUME_DOWN = 0xAE,
+        VK_VOLUME_UP = 0xAF
     }
 
     [DllImport("user32.dll")]
@@ -119,5 +122,53 @@ public class Win32
     public static void PressKeyUp(Keys k)
     {
         keybd_event((byte)k, 0x45, KEYEVENTF_KEYUP, 0);
+    }
+
+
+    //Sound alwayws full or zero!?!
+    //https://stackoverflow.com/questions/13139181/how-to-programmatically-set-the-system-volume
+
+    private const int APPCOMMAND_VOLUME_MUTE = 0x80000;
+    private const int APPCOMMAND_VOLUME_UP = 0xA0000;
+    private const int APPCOMMAND_VOLUME_DOWN = 0x90000;
+    private const int WM_APPCOMMAND = 0x319;
+
+    [DllImport("user32.dll")]
+    public static extern IntPtr SendMessageW(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
+    //public static void Mute()
+    //{
+    //    SendMessageW((IntPtr)0xffff, WM_APPCOMMAND, (IntPtr)0xffff,
+    //        (IntPtr)APPCOMMAND_VOLUME_MUTE);
+    //}
+
+    //public static void VolDown()
+    //{
+    //    SendMessageW((IntPtr)0xffff, WM_APPCOMMAND, (IntPtr)0xffff,
+    //        (IntPtr)APPCOMMAND_VOLUME_DOWN);
+    //}
+
+    //public static void VolUp()
+    //{
+    //    SendMessageW((IntPtr)0xffff, WM_APPCOMMAND, (IntPtr)0xffff,
+    //        (IntPtr)APPCOMMAND_VOLUME_UP);
+    //}
+
+
+
+    //Sound keyboard event
+    public static void Mute()
+    {
+        keybd_event((byte)Keys.VK_VOLUME_MUTE, 0, 0, 0);
+    }
+
+    public static void VolDown()
+    {
+        keybd_event((byte)Keys.VK_VOLUME_DOWN, 0, 0, 0);
+    }
+
+    public static void VolUp()
+    {
+        keybd_event((byte)Keys.VK_VOLUME_UP, 0, 0, 0);
     }
 }
